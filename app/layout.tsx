@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { OrganizationJsonLd } from "@/components/JsonLd";
@@ -66,6 +67,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <OrganizationJsonLd />
+        <Analytics />
       </body>
     </html>
   );
