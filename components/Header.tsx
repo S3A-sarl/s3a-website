@@ -14,14 +14,11 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-black/5 bg-white/95 backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-3" aria-label="Accueil S3A">
-          <Logo className="h-11 w-11" />
-          <div className="leading-tight">
-            <div className="text-lg font-extrabold tracking-tight text-s3a-anthracite">
-              S3A
-            </div>
-            <div className="hidden text-[11px] uppercase tracking-widest text-s3a-grey sm:block">
-              Adduction · Aménagement · Assainissement
-            </div>
+          <Logo className="h-12 w-auto" />
+          <div className="hidden border-l border-black/10 pl-3 text-[11px] uppercase tracking-widest text-s3a-grey sm:block">
+            Adduction · Aménagement
+            <br />
+            Assainissement
           </div>
         </Link>
 

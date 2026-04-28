@@ -35,7 +35,7 @@ Site vitrine commercial de la société **S3A**, à développer en Next.js et à
 | Adresse | Lot n°56 A, Zone Industrielle, Bir Rami, **Kénitra** (Maroc) |
 | Téléphone | **05 37 36 30 41** |
 | Fax | 05 37 36 32 48 |
-| Email | **s3a-sa@hotmail.fr** |
+| Email | **s3a-sarl@hotmail.fr** |
 
 ### Présentation
 
@@ -182,7 +182,7 @@ s3a-website/
 - `lib/mailer.ts` expose `sendMail({ to, subject, html, attachments })` via nodemailer.
 - Variables d'environnement requises :
   - `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`, `SMTP_PASS`
-  - `CONTACT_TO` (par défaut `s3a-sa@hotmail.fr`)
+  - `CONTACT_TO` (par défaut `s3a-sarl@hotmail.fr`)
   - `CONTACT_FROM` (expéditeur autorisé par le SMTP)
 - `/api/contact` : validation Zod (`nom`, `societe`, `email`, `tel`, `service`, `message`) → email HTML formaté.
 - `/api/recrutement` : `FormData` multipart, CV PDF ≤ 5 Mo → email avec pièce jointe.

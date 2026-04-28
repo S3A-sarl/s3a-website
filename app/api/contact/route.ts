@@ -3,6 +3,7 @@ import { z } from "zod";
 import { sendMail, escapeHtml } from "@/lib/mailer";
 import { rateLimit } from "@/lib/rateLimit";
 import { serviceSlugs } from "@/lib/services";
+import { formatZodError } from "@/lib/formError";
 
 export const runtime = "nodejs";
 
@@ -30,16 +31,24 @@ export async function POST(request: Request) {
     );
   }
 
-  let data: z.infer<typeof schema>;
+  let json: unknown;
   try {
-    const json = await request.json();
-    data = schema.parse(json);
+    json = await request.json();
   } catch {
     return NextResponse.json(
-      { ok: false, error: "Formulaire invalide." },
+      { ok: false, error: "Requête invalide." },
       { status: 400 }
     );
   }
+
+  const result = schema.safeParse(json);
+  if (!result.success) {
+    return NextResponse.json(
+      { ok: false, error: formatZodError(result.error) },
+      { status: 400 }
+    );
+  }
+  const data = result.data;
 
   if (data.website) {
     return NextResponse.json({ ok: true });

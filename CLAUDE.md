@@ -8,7 +8,7 @@ Site vitrine commercial de **S3A** (Adduction – Aménagement – Assainissemen
 
 - Langue : **français uniquement**.
 - Cible : clients B2B (bâtiment, industrie) au Maroc et à l'étranger.
-- Email de destination des formulaires : `s3a-sa@hotmail.fr`.
+- Email de destination des formulaires : `s3a-sarl@hotmail.fr`.
 
 ## Stack
 
@@ -69,7 +69,7 @@ Toutes définies dans [.env.example](.env.example) :
 
 ```
 SMTP_HOST, SMTP_PORT, SMTP_SECURE, SMTP_USER, SMTP_PASS
-CONTACT_TO=s3a-sa@hotmail.fr
+CONTACT_TO=s3a-sarl@hotmail.fr
 CONTACT_FROM="S3A Site <noreply@s3a.ma>"
 NEXT_PUBLIC_SITE_URL=https://s3a.ma
 ```

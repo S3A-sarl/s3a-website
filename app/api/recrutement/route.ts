@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { sendMail, escapeHtml } from "@/lib/mailer";
 import { rateLimit } from "@/lib/rateLimit";
+import { formatZodError } from "@/lib/formError";
 
 export const runtime = "nodejs";
 export const maxDuration = 30;
@@ -50,15 +51,14 @@ export async function POST(request: Request) {
     website: form.get("website") ?? "",
   };
 
-  let data: z.infer<typeof schema>;
-  try {
-    data = schema.parse(raw);
-  } catch {
+  const result = schema.safeParse(raw);
+  if (!result.success) {
     return NextResponse.json(
-      { ok: false, error: "Formulaire invalide." },
+      { ok: false, error: formatZodError(result.error) },
       { status: 400 }
     );
   }
+  const data = result.data;
 
   if (data.website) {
     return NextResponse.json({ ok: true });

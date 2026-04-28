@@ -17,11 +17,20 @@ function getTransporter(): Transporter {
     );
   }
 
+  const tls: Record<string, unknown> = {};
+  if (process.env.SMTP_TLS_SERVERNAME) {
+    tls.servername = process.env.SMTP_TLS_SERVERNAME;
+  }
+  if (process.env.SMTP_TLS_REJECT_UNAUTHORIZED === "false") {
+    tls.rejectUnauthorized = false;
+  }
+
   cached = nodemailer.createTransport({
     host,
     port,
     secure,
     auth: { user, pass },
+    ...(Object.keys(tls).length > 0 ? { tls } : {}),
   });
   return cached;
 }
@@ -39,7 +48,7 @@ export async function sendMail(options: {
   replyTo?: string;
   attachments?: MailAttachment[];
 }) {
-  const to = process.env.CONTACT_TO ?? "s3a-sa@hotmail.fr";
+  const to = process.env.CONTACT_TO ?? "s3a-sarl@hotmail.fr";
   const from = process.env.CONTACT_FROM ?? `S3A Site <${to}>`;
   const transporter = getTransporter();
   await transporter.sendMail({

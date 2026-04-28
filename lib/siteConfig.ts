@@ -17,7 +17,7 @@ export const siteConfig = {
     phone: "05 37 36 30 41",
     phoneE164: "+212537363041",
     fax: "05 37 36 32 48",
-    email: "s3a-sa@hotmail.fr",
+    email: "s3a-sarl@hotmail.fr",
   },
   nav: [
     { label: "Accueil", href: "/" },

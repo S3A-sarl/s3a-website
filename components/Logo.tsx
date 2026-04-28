@@ -4,32 +4,29 @@ type Props = {
 };
 
 export function Logo({ className, variant = "dark" }: Props) {
-  const color = variant === "light" ? "#ffffff" : "#d9423c";
+  const red = "#d9423c";
+  const text = variant === "light" ? "#ffffff" : "#2b2d33";
   return (
     <svg
       className={className}
-      viewBox="0 0 120 120"
+      viewBox="0 0 200 140"
       xmlns="http://www.w3.org/2000/svg"
       role="img"
       aria-label="Logo S3A"
     >
-      <circle cx="60" cy="60" r="56" fill="none" stroke={color} strokeWidth="3" />
       <path
-        d="M32 48 L60 22 L88 48"
-        fill="none"
-        stroke={color}
-        strokeWidth="5"
-        strokeLinejoin="round"
+        d="M0 70 L20 14 L40 70 L60 14 L80 70 L100 14 L120 70 L140 14 L160 70 L180 14 L200 70 Z"
+        fill={red}
       />
       <text
-        x="60"
-        y="86"
+        x="100"
+        y="126"
         textAnchor="middle"
-        fontFamily="Manrope, sans-serif"
-        fontSize="34"
-        fontWeight="800"
-        fill={color}
-        letterSpacing="1"
+        fontFamily="Manrope, ui-sans-serif, system-ui, sans-serif"
+        fontWeight="900"
+        fontSize="54"
+        fill={text}
+        letterSpacing="2"
       >
         S3A
       </text>

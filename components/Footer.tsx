@@ -8,11 +8,8 @@ export function Footer() {
     <footer className="mt-24 bg-s3a-anthracite text-white/85">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-4 lg:px-8">
         <div>
-          <div className="flex items-center gap-3">
-            <Logo className="h-10 w-10" variant="light" />
-            <span className="text-lg font-extrabold tracking-tight text-white">
-              S3A
-            </span>
+          <div className="flex items-center">
+            <Logo className="h-14 w-auto" variant="light" />
           </div>
           <p className="mt-4 text-sm leading-6 text-white/70">
             {siteConfig.legalName}. Fabrication et montage de chaudronnerie,
