@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
@@ -60,6 +61,19 @@ export default async function ServiceDetailPage({
         title={service.titre}
         description={service.accroche}
       />
+
+      <section className="mx-auto max-w-5xl px-4 pt-10 sm:px-6 lg:px-8">
+        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl bg-s3a-sand shadow-sm">
+          <Image
+            src={service.image}
+            alt={service.titre}
+            fill
+            priority
+            sizes="(min-width: 1024px) 1024px, 100vw"
+            className="object-cover"
+          />
+        </div>
+      </section>
 
       <section className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
         <p className="text-base leading-7 text-s3a-grey">{service.description}</p>

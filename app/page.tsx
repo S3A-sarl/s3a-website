@@ -1,7 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { services } from "@/lib/services";
-import { realisations } from "@/lib/realisations";
 import { siteConfig } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
@@ -88,19 +88,30 @@ export default function HomePage() {
             <li key={s.slug}>
               <Link
                 href={`/services/${s.slug}`}
-                className="group block h-full rounded-xl border border-black/5 bg-white p-6 shadow-sm transition-all hover:-translate-y-0.5 hover:border-s3a-red/30 hover:shadow-md"
+                className="group flex h-full flex-col overflow-hidden rounded-xl border border-black/5 bg-white shadow-sm transition-all hover:-translate-y-0.5 hover:border-s3a-red/30 hover:shadow-md"
               >
-                <div className="flex items-center gap-3">
-                  <span className="inline-flex h-8 w-8 items-center justify-center rounded bg-s3a-red text-sm font-bold text-white">
-                    {s.numero}
-                  </span>
-                  <h3 className="text-base font-semibold text-s3a-anthracite group-hover:text-s3a-red">
-                    {s.titreCourt}
-                  </h3>
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-s3a-sand">
+                  <Image
+                    src={s.image}
+                    alt={s.titre}
+                    fill
+                    sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
                 </div>
-                <p className="mt-3 text-sm leading-6 text-s3a-grey">
-                  {s.accroche}
-                </p>
+                <div className="flex flex-1 flex-col p-6">
+                  <div className="flex items-center gap-3">
+                    <span className="inline-flex h-8 w-8 items-center justify-center rounded bg-s3a-red text-sm font-bold text-white">
+                      {s.numero}
+                    </span>
+                    <h3 className="text-base font-semibold text-s3a-anthracite group-hover:text-s3a-red">
+                      {s.titreCourt}
+                    </h3>
+                  </div>
+                  <p className="mt-3 text-sm leading-6 text-s3a-grey">
+                    {s.accroche}
+                  </p>
+                </div>
               </Link>
             </li>
           ))}
@@ -149,48 +160,6 @@ export default function HomePage() {
             ))}
           </ul>
         </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-s3a-red">
-              Réalisations
-            </p>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-s3a-anthracite sm:text-4xl">
-              Quelques chantiers récents.
-            </h2>
-          </div>
-          <Link
-            href="/realisations"
-            className="text-sm font-semibold text-s3a-red hover:text-s3a-red-dark"
-          >
-            Voir toutes les réalisations →
-          </Link>
-        </div>
-
-        <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {realisations.slice(0, 6).map((r) => (
-            <li
-              key={r.id}
-              className="group overflow-hidden rounded-xl border border-black/5 bg-white shadow-sm"
-            >
-              <div className="aspect-[4/3] w-full bg-s3a-sand">
-                <div
-                  role="img"
-                  aria-label={r.titre}
-                  className="h-full w-full bg-gradient-to-br from-s3a-anthracite/10 via-s3a-sand to-s3a-red/10"
-                />
-              </div>
-              <div className="p-5">
-                <h3 className="text-base font-semibold text-s3a-anthracite">
-                  {r.titre}
-                </h3>
-                <p className="mt-1 text-sm text-s3a-grey">{r.description}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
       </section>
 
       <section className="relative overflow-hidden bg-s3a-red text-white">

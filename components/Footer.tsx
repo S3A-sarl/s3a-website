@@ -9,7 +9,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-4 lg:px-8">
         <div>
           <div className="flex items-center">
-            <Logo className="h-14 w-auto" variant="light" />
+            <Logo className="h-14 w-auto" />
           </div>
           <p className="mt-4 text-sm leading-6 text-white/70">
             {siteConfig.legalName}. Fabrication et montage de chaudronnerie,

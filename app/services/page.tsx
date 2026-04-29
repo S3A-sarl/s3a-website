@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/PageHeader";
 import { BreadcrumbJsonLd } from "@/components/JsonLd";
@@ -26,24 +27,35 @@ export default function ServicesPage() {
             <li key={s.slug}>
               <Link
                 href={`/services/${s.slug}`}
-                className="group flex h-full flex-col justify-between rounded-xl border border-black/5 bg-white p-7 shadow-sm transition-all hover:-translate-y-0.5 hover:border-s3a-red/30 hover:shadow-md"
+                className="group flex h-full flex-col overflow-hidden rounded-xl border border-black/5 bg-white shadow-sm transition-all hover:-translate-y-0.5 hover:border-s3a-red/30 hover:shadow-md"
               >
-                <div>
-                  <div className="flex items-center gap-3">
-                    <span className="inline-flex h-9 w-9 items-center justify-center rounded bg-s3a-red text-base font-bold text-white">
-                      {s.numero}
-                    </span>
-                    <h2 className="text-lg font-semibold text-s3a-anthracite group-hover:text-s3a-red">
-                      {s.titre}
-                    </h2>
-                  </div>
-                  <p className="mt-4 text-sm leading-6 text-s3a-grey">
-                    {s.accroche}
-                  </p>
+                <div className="relative aspect-[4/3] w-full overflow-hidden bg-s3a-sand">
+                  <Image
+                    src={s.image}
+                    alt={s.titre}
+                    fill
+                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
                 </div>
-                <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-s3a-red">
-                  En savoir plus →
-                </span>
+                <div className="flex flex-1 flex-col justify-between p-7">
+                  <div>
+                    <div className="flex items-center gap-3">
+                      <span className="inline-flex h-9 w-9 items-center justify-center rounded bg-s3a-red text-base font-bold text-white">
+                        {s.numero}
+                      </span>
+                      <h2 className="text-lg font-semibold text-s3a-anthracite group-hover:text-s3a-red">
+                        {s.titre}
+                      </h2>
+                    </div>
+                    <p className="mt-4 text-sm leading-6 text-s3a-grey">
+                      {s.accroche}
+                    </p>
+                  </div>
+                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-s3a-red">
+                    En savoir plus →
+                  </span>
+                </div>
               </Link>
             </li>
           ))}
