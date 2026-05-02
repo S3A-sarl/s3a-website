@@ -59,7 +59,7 @@ export default function HomePage() {
               <Stat value="20+" label="Années d'expérience" />
               <Stat value="8" label="Domaines d'activité" />
               <Stat value="100%" label="Sur plans client" />
-              <Stat value="MA" label="Maroc & export" />
+              <Stat value="MA et export" label="Maroc & export" />
             </dl>
           </div>
         </div>
