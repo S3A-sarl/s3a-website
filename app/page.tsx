@@ -176,7 +176,7 @@ export default function HomePage() {
           <div className="flex gap-3">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-md bg-white px-6 py-3 text-base font-semibold text-s3a-red transition-colors hover:bg-white/90"
+              className="inline-flex items-center justify-center rounded-md bg-s3a-anthracite px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-black"
             >
               Demander un devis
             </Link>
